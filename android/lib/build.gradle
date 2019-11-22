@@ -87,4 +87,12 @@ dependencies {
     projDependencies.each {
         add(it.configuration, it.dependency)
     }
+
+    if (rootProject.findProperty("android.useAndroidX")) {
+        implementation "androidx.appcompat:appcompat:1.0.2"
+        implementation "androidx.legacy:legacy-support-v4:1.0.0"
+    } else {
+        implementation "com.android.support:appcompat-v7:${supportLibVersion}"
+        implementation "com.android.support:support-v4:${supportLibVersion}"
+    }
 }
